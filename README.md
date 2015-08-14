@@ -1,0 +1,2 @@
+# WngCodingTask
+Numeric Sequence Calculator
