@@ -13,7 +13,13 @@
 
     function HomeController( $scope, $timeout, sequenceService ) {
 
-        $scope.sequences = {};
+        $scope.sequences = {
+            all: [],
+            even: [],
+            odd: [],
+            conditional: [],
+            fibonacci: []
+        };
         $scope.number = null;
 
         $scope.generateSequences = function () {

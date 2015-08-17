@@ -17,7 +17,7 @@
                     <input type="number" ng-model="number" ng-pattern="/^[0-9]+$/" required name="number" class="form-control" placeholder="Enter a number" />
                 </div>
 
-                <input type="submit" id="calculatebtn" value="Generate Sequences" class="btn btn-primary" />
+                <input id="calculateBtn" type="submit" value="Generate Sequences" class="btn btn-primary" />
 
                 <div ng-messages="form.number.$error" ng-show="form.number.$dirty && form.number.$invalid" class="text-danger" role="alert">
                     <p ng-message="pattern">Please enter positive whole numbers only</p>
@@ -37,19 +37,19 @@
                 <li class="list-group-item">
                     <h4 class="list-group-item-heading">All Numbers Sequence</h4>
                     <p>S3.1.1 All numbers up to and including the number entered</p>
-                    <span ng-repeat="item in sequences.all">{{item}} {{$last ? '' : ','}}</span>
-                </li>
-
-                <li class="list-group-item">
-                    <h4 class="list-group-item-heading">Even Numbers Sequence</h4>
-                    <p>S3.1.2 All odd numbers up to and including the number entered</p>
-                    <span ng-repeat="item in sequences.even">{{item}} {{$last ? '' : ','}}</span>
+                    <span ng-repeat="item in sequences.all">{{item}}</span>
                 </li>
 
                 <li class="list-group-item">
                     <h4 class="list-group-item-heading">Odd Numbers Sequence</h4>
+                    <p>S3.1.2 All odd numbers up to and including the number entered</p>
+                    <span ng-repeat="item in sequences.odd">{{item}}</span>
+                </li>
+
+                <li class="list-group-item">
+                    <h4 class="list-group-item-heading">Even Numbers Sequence</h4>
                     <p>S3.1.3 All even numbers up to and including the number entered</p>
-                    <span ng-repeat="item in sequences.odd">{{item}} {{$last ? '' : ','}}</span>
+                    <span ng-repeat="item in sequences.even">{{item}}</span>
                 </li>
 
                 <li class="list-group-item">
@@ -62,13 +62,13 @@
                             <li>S3.1.4.3 A number is a multiple of both 3 and 5 output Z</li>
                         </ul>
                     </p>
-                    <span ng-repeat="item in sequences.conditional">{{item}} {{$last ? '' : ','}}</span>
+                    <span ng-repeat="item in sequences.conditional">{{item}}</span>
                 </li>
 
                 <li class="list-group-item">
                     <h4 class="list-group-item-heading">Fibonacci Numbers Sequence</h4>
                     <p>S3.1.5 All fibonacci number up to and including the number entered</p>
-                    <span ng-repeat="item in sequences.fibonacci track by $index">{{item}} {{$last ? '' : ','}}</span>
+                    <span ng-repeat="item in sequences.fibonacci track by $index">{{item}}</span>
                 </li>
             </ul>
         </div>
@@ -80,6 +80,6 @@
     <script src="~/js/home/indexController.js"></script>
 }
 
-@*<p ng-message="required">Please enter a number</p>  ng-disabled="form.$invalid"*@
+@*  {{$last ? '' : ','}}<p ng-message="required">Please enter a number</p>  ng-disabled="form.$invalid"*@
 
 

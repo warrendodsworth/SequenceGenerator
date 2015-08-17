@@ -12,64 +12,70 @@ describe( 'hello-protractor', function () {
     //Home page tests
     describe( "index", function () {
 
-        var number = element( by.model( 'number' ) );
-        var numberBinding = element( by.binding( 'number' ) );  //Cannot find binding inside form
-        var calculatebtn = element( by.id( 'calculatebtn' ) );
-
-        var defaultSequence = element.all( by.repeater( 'item in sequences.all' ) );
-        var evenSequence = element.all( by.repeater( 'item in sequences.even' ) );
-        var oddSequence = element.all( by.repeater( 'item in sequences.odd' ) );
-
         beforeEach( function () {
+            //Go to homepage
             browser.get( '/home/index' );
+
+            //Enter a number
+            numberInput.sendKeys( '10' );
+
+            //Calculate sequences
+            calculateBtn.click();
         } );
 
 
+        //Initialize variables
+        var numberInput = element( by.model( 'number' ) );
+        var numberBinding = element( by.binding( 'number' ) );  //Cannot find binding inside form
+        var calculateBtn = element( by.id( 'calculateBtn' ) );
 
-        //#1
+        var defaultSequence = element.all( by.repeater( 'item in sequences.all' ) );
+        var oddSequence = element.all( by.repeater( 'item in sequences.odd' ) );
+        var evenSequence = element.all( by.repeater( 'item in sequences.even' ) );
+        var conditionalSequence = element.all( by.repeater( 'item in sequences.conditional' ) );
+        var fibonacciSequence = element.all( by.repeater( 'item in sequences.fibonacci' ) );
+
+      
+        //Check title
         it( '#1 correct title', function () {
             expect( browser.getTitle() ).toEqual( 'Home Page' );
         } );
 
-        //#2
+        //Check number binding
         it( '#2 change number and view the output', function () {
-            //Locate the number field and enter the number 1000000
-            number.sendKeys( '10' );
-
             //Get binding and check its value
             expect( numberBinding.getText() ).toEqual( '10' );
-
-            numberBinding.getText().then( function ( text ) {
-                console.log( 'BINDING output ' + text );
-            } );
-
         } );
 
-        //#3
-        it( '#3 should return correct sequences', function () {
-            //number.sendKeys( '10' );
-
-            //Calculate sequences
-            calculatebtn.click();
-
-            //All numbers sequence
-            defaultSequence.then( function ( items ) {
-                console.log( 'Default Sequence - ' + items );
-
-                //expect( items[0] ).toEqual( 0 );
-            } );
-
+        //All numbers sequence
+        it( '#3 should return valid number sequence', function () {
             expect( defaultSequence.count() ).toEqual( 11 );
-
-            //Odd numbers sequence
-
-            //Even numbers sequence
-
-            //Conditional result sequence
-
-            //Fibonacci sequence
+            expect( defaultSequence.last().getText() ).toEqual( '10' );
         } );
-    
+
+        //Odd numbers sequence
+        it( '#4 should return valid odd number sequence', function () {
+            expect( oddSequence.count() ).toEqual( 5 );
+            expect( oddSequence.last().getText() ).toEqual( '9' );   
+        } );
+
+        //Even numbers sequence
+        it( '#5 should return valid even number sequence', function () {
+            expect( evenSequence.count() ).toEqual( 6 );
+            expect( evenSequence.last().getText() ).toEqual( '10' );   
+        } );
+
+        //Conditional result sequence
+        it( '#6 should return valid conditional sequence', function () {
+            expect( conditionalSequence.count() ).toEqual( 1 );
+            expect( conditionalSequence.first().getText() ).toEqual( 'E' );
+        } );
+
+        //Fibonacci sequence
+        it( '#7 should return valid fibonacci sequence', function () {
+            expect( fibonacciSequence.count() ).toEqual( 7 );
+            expect( fibonacciSequence.first().getText() ).toEqual( '0' );   
+        } );
     } );
 
 } );
@@ -80,44 +86,12 @@ describe( 'hello-protractor', function () {
 
 
 
-////#0 - Pass
-//it( '#0 test initialize', function () {
-
-//} )
-//function calculateSequence( number ) {
-//    number.sendKeys( '10' );
-//}
-
-
-
-
-
-
-
-
-
-
-
-
-
-//var ptor = protractor.getInstance();
-//ptor.get( '/#' );
-
-
-//it( 'should return sequence', function () {
-
-//    // Find the element with ng-model="user" and type "jacksparrow" into it
-//    element( by.model( 'number' ) ).sendKeys( '100' );
-
-//    // Find the first (and only) button on the page and click it
-//    element( by.css( ':button[type=submit]' ) ).click();
-
-//    // Verify that there are 10 tasks
-//    expect( element.all( by.repeater( 'item in sequence.all' ) ).count() ).toEqual( 10 );
-
-//    // Enter 'groceries' into the element with ng-model="filterText"
-//    element( by.model( 'filterText' ) ).sendKeys( 'groceries' );
-
-//    // Verify that now there is only one item in the task list
-//    expect( element.all( by.repeater( 'task in tasks' ) ).count() ).toEqual( 1 );
+//defaultSequence.then( function ( items ) {
+//    console.log( 'Default Sequence - ' + items );
+//    //expect( items[0] ).toEqual( 0 );
 //} );
+
+//numberBinding.getText().then( function ( text ) {
+//    console.log( 'BINDING output ' + text );
+//} );
+
