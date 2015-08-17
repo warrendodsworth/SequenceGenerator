@@ -15,3 +15,11 @@ select,
 textarea {
     max-width: 280px;
 }
+
+/*Angular*/
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak { display: none !important; }
+
+input.ng-dirty.ng-invalid,
+textarea.ng-dirty.ng-invalid,
+select.ng-dirty.ng-invalid { border-color: #a94442; }

@@ -8,6 +8,22 @@ namespace WngCodingTask
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles ( BundleCollection bundles )
         {
+            bundles.Add( new ScriptBundle( "~/bundles/angular" ).Include(
+                    //Libs
+                    "~/Scripts/angular.js",
+                    "~/Scripts/angular-mocks.js",
+                    "~/Scripts/angular-messages.js",
+
+                    //Modules
+                    "~/js/app.js",
+
+                    //Services
+                    "~/js/shared/sequenceService.js",
+
+                    //Directives
+                    "~/js/shared/directives/result.js" ) );
+
+
             bundles.Add( new ScriptBundle( "~/bundles/jquery" ).Include(
                         "~/Scripts/jquery-{version}.js" ) );
 

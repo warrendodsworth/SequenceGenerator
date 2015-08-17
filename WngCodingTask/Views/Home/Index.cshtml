@@ -1,31 +1,105 @@
-﻿    
-<h2>Wng Coding Task</h2>
-<h4>Numeric Sequence Calculator</h4>  
+﻿
+<h2>Wng Coding Task <small>Numeric Sequence Calculator</small></h2>
 <hr />
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Enter a number</h2>
-        <p>The number can be anywhere between 0 and infinity (+ve only).</p>
-        <p>The number cannot have any decimal points.</p>
+
+<div ng-controller="IndexController">
+
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <h2>Enter a number</h2>
+            <p>The number must be a whole number (no decimal point & positive) between 0 and infinity.</p>
+            <br />
+            <p class="text-center">You entered <span ng-cloak>{{number}}</span></p>
+
+            <form name="form" ng-submit="form.$valid && generateSequences()" novalidate class="form-inline text-center" ng-cloak>
+                <div class="form-group">
+                    <label class="sr-only">Enter a number</label>
+                    <input type="number" ng-model="number" ng-pattern="/^[0-9]+$/" required name="number" class="form-control" placeholder="Enter a number" />
+                </div>
+
+                <input type="submit" id="calculatebtn" ng-disabled="form.$invalid" value="Generate Sequences" class="btn btn-primary" />
+
+                <div ng-messages="form.number.$error" ng-show="form.number.$dirty && form.number.$invalid" class="text-danger" role="alert">
+                    <p ng-message="pattern">Please enter positive whole numbers only</p>
+                    @*<p ng-message="required">Please enter a number</p>*@
+                </div>
+
+                <result message="message"></result>
+            </form>
+            <br />
+
+
+            <h4>We then calculate sequences</h4>
+            <p>S3.1 The following numeric sequences shall be displayed</p>
+            <br />
+
+            <ul class="list-group" ng-cloak>
+                <li class="list-group-item">
+                    <h4 class="list-group-item-heading">All Numbers Sequence</h4>
+                    <p>S3.1.1 All numbers up to and including the number entered</p>
+                    <span ng-repeat="item in sequences.all">{{item}} {{$last ? '' : ','}}</span>
+                </li>
+
+                <li class="list-group-item">
+                    <h4 class="list-group-item-heading">Even Numbers Sequence</h4>
+                    <p>S3.1.2 All odd numbers up to and including the number entered</p>
+                    <span ng-repeat="item in sequences.even">{{item}} {{$last ? '' : ','}}</span>
+                </li>
+
+                <li class="list-group-item">
+                    <h4 class="list-group-item-heading">Odd Numbers Sequence</h4>
+                    <p>S3.1.3 All even numbers up to and including the number entered</p>
+                    <span ng-repeat="item in sequences.odd">{{item}} {{$last ? '' : ','}}</span>
+                </li>
+
+                <li class="list-group-item">
+                    <h4 class="list-group-item-heading">Conditional Numbers Sequence</h4>
+                    <p>
+                        S3.1.4 All numbers up to and including the number entered, except when
+                        <ul>
+                            <li>S3.1.4.1 A number is a multiple of 3 output C</li>
+                            <li>S3.1.4.2 A number is a multiple of 5 output E</li>
+                            <li>S3.1.4.3 A number is a multiple of both 3 and 5 output Z</li>
+                        </ul>
+                    </p>
+                    <span ng-repeat="item in sequences.conditional">{{item}} {{$last ? '' : ','}}</span>
+                </li>
+
+                <li class="list-group-item">
+                    <h4 class="list-group-item-heading">Fibonacci Numbers Sequence</h4>
+                    <p>S3.1.5 All fibonacci number up to and including the number entered</p>
+                    <span ng-repeat="item in sequences.fibonacci track by $index">{{item}} {{$last ? '' : ','}}</span>
+                </li>
+            </ul>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>We calculate a sequence</h2>
-        <p>Using our secret algorithm</p>
-    </div>
-    <div class="col-md-4">
-        <h2>The Results Appear</h2>
-        <p>
-            S3.1 The following numeric sequences shall be displayed:
-            S3.1.1 All numbers up to and including the number entered,
-            S3.1.2 All odd numbers up to and including the number entered,
-            S3.1.3 All even numbers up to and including the number entered,
-            S3.1.4 All numbers up to and including the number entered, except
-            when,
-            S3.1.4.1 A number is a multiple of 3 output C, and when,
-            S3.1.4.2 A number is a multiple of 5 output E, and when,
-            S3.1.4.3 A number is a multiple of both 3 and 5 output Z,
-            S3.1.5 All fibonacci number up to and including the number entered.
-        </p>
-    </div>
+
 </div>
+
+@section scripts{
+    <script src="~/js/home/indexController.js"></script>
+}
+
+
+
+
+@*<ul class="list-group">
+        <li class="list-group-item"></li>
+        <li class="list-group-item"></li>
+        <li class="list-group-item"></li>
+        <li class="list-group-item">
+            <p></p>
+
+
+        </li>
+        <li class="list-group-item"></li>
+    </ul>*@
+
+
+@*<div class="list-group">
+    <a href="#" class="list-group-item active">
+       <h4 class="list-group-item-heading">List group item heading</h4>
+                <p class="list-group-item-text">S3.1.1 All numbers up to and including the number entered,</p>
+            </a>
+        </div>*@
