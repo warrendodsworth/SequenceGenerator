@@ -5,7 +5,7 @@
 ( function () {
     'use strict';
 
-    angular.module( 'skaoss' )
+    angular.module( 'WngCodingTask' )
            .directive( 'result', function () {
                return {
                    restrict: 'E',
