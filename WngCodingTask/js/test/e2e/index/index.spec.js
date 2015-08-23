@@ -79,19 +79,3 @@ describe( 'hello-protractor', function () {
     } );
 
 } );
-
-
-
-
-
-
-
-//defaultSequence.then( function ( items ) {
-//    console.log( 'Default Sequence - ' + items );
-//    //expect( items[0] ).toEqual( 0 );
-//} );
-
-//numberBinding.getText().then( function ( text ) {
-//    console.log( 'BINDING output ' + text );
-//} );
-
