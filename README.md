@@ -1,5 +1,4 @@
-# WngCodingTask
-Numeric Sequence Calculator
+# Numeric Sequence Calculator
 
 # Calculation
 
