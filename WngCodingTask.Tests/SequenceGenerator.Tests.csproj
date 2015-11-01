@@ -103,9 +103,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WngCodingTask\WngCodingTask.csproj">
+    <ProjectReference Include="..\WngCodingTask\SequenceGenerator.csproj">
       <Project>{D3B0758B-2859-4A6F-B879-693800C38703}</Project>
-      <Name>WngCodingTask</Name>
+      <Name>SequenceGenerator</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

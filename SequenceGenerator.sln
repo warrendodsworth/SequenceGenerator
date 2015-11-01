@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WngCodingTask", "WngCodingTask\WngCodingTask.csproj", "{D3B0758B-2859-4A6F-B879-693800C38703}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SequenceGenerator", "WngCodingTask\SequenceGenerator.csproj", "{D3B0758B-2859-4A6F-B879-693800C38703}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WngCodingTask.Tests", "WngCodingTask.Tests\WngCodingTask.Tests.csproj", "{20113740-F2B8-47C6-AFB0-AD8C87B6C588}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SequenceGenerator.Tests", "WngCodingTask.Tests\SequenceGenerator.Tests.csproj", "{20113740-F2B8-47C6-AFB0-AD8C87B6C588}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
