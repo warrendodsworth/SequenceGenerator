@@ -5,6 +5,8 @@
 The entry of a number (between 0 to n positive) by a user will prompt the system to do a calculation.
 Results will be a sequence of numbers from 0 up until and including the number entered.
 
+##Demo on Azure
+[Click here](http://sequencegenerator.azurewebsites.net) to have a look.
 
 ## S3.1 The following numeric sequences shall be displayed
 
